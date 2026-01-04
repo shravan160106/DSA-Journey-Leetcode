@@ -10,3 +10,7 @@ class Solution {
         return j+1;
     }
 }
+
+HERE:
+use 2 pointer method where keep 1 pointer fixed on the first index(j) and keep on checking next elements with i loop starting
+from 1 & when the i detects unique integer it adds the element in j loop and goes on at next with j++
