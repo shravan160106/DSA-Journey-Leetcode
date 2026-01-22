@@ -1,0 +1,32 @@
+//sliding window problem
+class Solution {
+    public int maxVowels(String s, int k) {
+        int currcount = 0;
+        //for first window checking
+        for (int i = 0; i < k; i++) {
+            if (isVowel(s.charAt(i))) {
+                currcount++;
+            }
+        }
+        int count = currcount ; //if this not done it will not update first window
+        int start = 0;
+        int end = k;
+        while(end < s.length()){
+            if(isVowel(s.charAt(start))){
+//to remove the incremeneted value of char that went out(remove contribution)
+                currcount--;  
+            }
+            start++;
+            if(isVowel(s.charAt(end))){
+//to add the incremeneted value of char that went out(add new contribution)
+                currcount++;
+            }
+            end++;
+            count = Math.max(count, currcount);
+        }
+        return count;
+    }
+    private boolean isVowel(char c){
+        return c == 'a' || c =='e' || c == 'i' || c == 'o' || c == 'u' ; 
+    }
+}
