@@ -1,0 +1,27 @@
+class Solution {
+    public int numOfSubarrays(int[] arr, int k, int threshold) {
+        int currsum = 0;
+        //this loop is very much required for adding for first window
+        for(int i=0;i<k;i++){
+            currsum += arr[i];
+        }
+        int count = 0;
+        //required for checking the count for first window
+        if(currsum/k>=threshold){
+            count++;
+        }
+        int start = 0;
+        int end = k;
+        while(end <arr.length){
+            currsum -= arr[start]; //remove last element
+            start++;
+            currsum += arr[end]; //remove first element
+            end++;
+            //threshold condition
+             if (currsum / k >= threshold) {
+                count++;
+            }
+        }
+        return count;
+    }
+}
