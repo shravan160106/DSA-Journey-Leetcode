@@ -3,6 +3,7 @@ class Solution {
     public boolean Contains_Duplicate(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
+/*Why we have to start from 1 and compare it with the previous element is because when we reach the last element, it will compare with element outside array creating error*/
         for(int i=1;i<n;i++){
             
                 if(nums[i]==nums[i-1]){

@@ -1,0 +1,17 @@
+class Solution {
+    public int diagonalSum(int[][] mat) {
+        int n = mat.length;
+        int sum = 0;
+        //to sum up all the diagonal elements
+        for(int i=0;i<n;i++){
+            sum += mat[i][i];
+            sum += mat[i][n-i-1]; //coniditon for diagonal elements
+        }
+
+        //Extra condition for odd matrix
+        if(n%2!=0){ // condition for checking if matrix is odd or even
+            sum -= mat[n/2][n/2]; //this is the middle most element 
+        }
+        return sum;
+    }
+}
