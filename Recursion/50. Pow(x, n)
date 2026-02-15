@@ -1,0 +1,27 @@
+class Solution {
+    public double myPow(double x, int n) {
+        long N = n;
+        if(N<0){
+            x = 1/x;
+            N = -N;
+        }
+        return norPow(x, N);
+    }
+        
+
+    public double norPow(double x, long n){
+        if(n==1) return x;
+        //for negative inputs
+        if(n==0) return 1;
+        //as if given 2^10 = 2^5 * 2*5
+        double half = norPow(x,n/2);
+        //to check if given n is odd so that the half can be done perfectly
+        if(n%2==0){
+            return half*half;
+        }
+        //if odd(2^5) = 2* 2^2 *2^2
+        else{
+            return x*half*half;
+        }
+    }
+}
